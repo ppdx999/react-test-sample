@@ -11,4 +11,10 @@ module.exports = {
     '^.+\\.(ts|tsx)$': 'ts-jest',
     '^.+\\.svg$': '<rootDir>/utils/svgTransform.js',
   },
+  "reporters": [
+    "default",
+    ["./node_modules/jest-html-reporter", {
+      "pageTitle": "Test Report"
+    }]
+  ]
 };
