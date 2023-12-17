@@ -2,19 +2,21 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   moduleNameMapper: {
     '\\.scss$': 'identity-obj-proxy',
-    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
+  testEnvironment: "jest-environment-jsdom",
   collectCoverageFrom: ['<rootDir>/**/*.{ts, tsx}'],
   roots: ['<rootDir>'],
-  testRegex: '(/tests/jest/.*|(\\.|/)(test|spec))\\.(ts|tsx)$',
+  testMatch: ["<rootDir>/src/**/?(*.)+(spec|test).[jt]s?(x)"],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
     '^.+\\.svg$': '<rootDir>/utils/svgTransform.js',
   },
-  "reporters": [
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  reporters: [
     "default",
-    ["./node_modules/jest-html-reporter", {
-      "pageTitle": "Test Report"
+    ["jest-html-reporter", {
+      "pageTitle": "Unit Test Report",
     }]
   ]
 };
