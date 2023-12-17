@@ -1,4 +1,5 @@
 .module {
+  /* Empty */
 }
 
 .inputs {
@@ -6,19 +7,18 @@
 }
 
 .fieldset {
-  width: 480px;
-  margin: 0 auto;
-  padding: 32px;
-  border: none;
   border: 2px solid var(--light-gray);
   border-radius: 16px;
+  margin: 0 auto;
+  padding: 32px;
+  width: 480px;
 }
 
 .legend {
+  background-color: var(--navy);
+  font-size: 2.4rem;
   padding: 8px 16px;
   text-align: center;
-  font-size: 2.4rem;
-  background-color: var(--navy);
 }
 
 .email,
@@ -29,8 +29,8 @@
 .email label,
 .password label {
   display: block;
-  margin-bottom: 8px;
   font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .button {
@@ -40,14 +40,14 @@
 }
 
 .textboxWithError {
-  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .error {
+  color: #f00;
   margin-top: 8px;
-  color: red;
 }
 
 @media screen and (max-width: 767px) {
@@ -58,17 +58,13 @@
     padding: var(--sp-inner-padding);
   }
 
-  .image {
-    display: none;
-  }
-
   .inputs {
     padding: 32px 0;
     width: 100%;
   }
 
   .fieldset {
-    width: 100%;
     padding: 16px;
+    width: 100%;
   }
 }

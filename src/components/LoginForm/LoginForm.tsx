@@ -12,7 +12,11 @@ const defaultValues: PostLoginInput = {
 };
 
 export const LoginForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues,
     resolver: zodResolver(postLoginInputSchema),
   });
@@ -42,7 +46,7 @@ export const LoginForm = () => {
           <div className={styles.email}>
             <label htmlFor="email">メールアドレス</label>
             <TextboxWithError
-              {...register("email")}
+              {...register('email')}
               id="email"
               type="text"
               placeholder="example@test.com"
@@ -52,7 +56,7 @@ export const LoginForm = () => {
           <div className={styles.password}>
             <label htmlFor="password">パスワード</label>
             <TextboxWithError
-              {...register("password")}
+              {...register('password')}
               id="password"
               type="password"
               placeholder="8文字以上で入力"
@@ -60,15 +64,11 @@ export const LoginForm = () => {
             />
           </div>
         </fieldset>
-        <button className={styles.button}>
-          ログイン
-        </button>
+        <button className={styles.button}>ログイン</button>
       </div>
     </form>
   );
-}
-
-
+};
 
 /*--------------------
  * Helper components
@@ -87,15 +87,8 @@ type TextboxWithErrorProps = {
 const TextboxWithError = React.forwardRef<HTMLInputElement, TextboxWithErrorProps>(
   ({ id, type, placeholder, error, ...rest }, ref) => (
     <div className={styles.textboxWithError}>
-      <input
-        {...rest}
-        ref={ref}
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        className={styles.textbox}
-      />
+      <input {...rest} ref={ref} id={id} type={type} placeholder={placeholder} />
       {error && <p className={styles.error}>{error}</p>}
     </div>
-  )
+  ),
 );
