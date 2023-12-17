@@ -34,7 +34,7 @@ describe('LoginForm', () => {
     await waitFor(() => expect(screen.getByText('不正なメールアドレスです')).toBeInTheDocument());
   });
 
-  test('不正なパスワードを入力すると画面に「パスワードは8文字以上です」と表示される', async () => {
+  test('8文字以下のパスワードを入力すると画面に「パスワードは8文字以上です」と表示される', async () => {
     await setup({ password: 'short' });
     await waitFor(() => expect(screen.getByText('パスワードは8文字以上です')).toBeInTheDocument());
   });
